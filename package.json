@@ -1,0 +1,15 @@
+{
+  "name": "logger",
+  "version": "1.0.0",
+  "description": "Front end logger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Sarpong",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "tslint": "^5.20.0"
+  }
+}
