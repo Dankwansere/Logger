@@ -6,7 +6,7 @@ export interface IInfo {
 }
 
 export class Formatter {
-  public static publicgenerateSimpleMessage(info: IInfo): string {
+  public static generateSimpleMessage(info: IInfo): string {
     return info.message + '\n' + 'time: ' + Formatter.getDate();
   }
 
