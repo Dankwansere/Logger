@@ -1,3 +1,5 @@
+import { IStyleConfig } from "./config";
+
 export interface IInfo {
   date?: string;
   level: string;
@@ -23,6 +25,17 @@ export class Formatter {
       location: 'unknown',
       message,
     };
+  }
+
+  public static getStyle(styleObj: IStyleConfig): string {
+    let customizedStyle: string = "";
+    for(const style in styleObj ) {
+        if(style) {
+          customizedStyle += style + ': ' + styleObj[style] + "; ";
+        }
+      }
+
+    return customizedStyle;
   }
 
   private static getDate(): string {
