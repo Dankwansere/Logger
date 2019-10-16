@@ -1,4 +1,4 @@
-import { IStyleConfig } from "./config";
+import { IStyleConfig } from './config';
 
 export interface IInfo {
   date?: string;
@@ -28,12 +28,12 @@ export class Formatter {
   }
 
   public static getStyle(styleObj: IStyleConfig): string {
-    let customizedStyle: string = "";
-    for(const style in styleObj ) {
-        if(style) {
-          customizedStyle += style + ': ' + styleObj[style] + "; ";
-        }
+    let customizedStyle: string = '';
+    for (const style in styleObj) {
+      if (style) {
+        customizedStyle += style + ': ' + styleObj[style] + '; ';
       }
+    }
 
     return customizedStyle;
   }

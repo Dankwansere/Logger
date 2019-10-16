@@ -14,13 +14,12 @@ import { IStyleConfig } from './config';
 // log.info('Thanksgiving warning', dog, test);
 
 const style: IStyleConfig = {
-  background: "blue",
-  color: "red",
-  font_family: "arial",
-  font_size: "30px",
-}
+  background: 'blue',
+  color: 'red',
+  font_family: 'arial',
+  font_size: '30px',
+};
 
-const style2: IStyleConfig = {}
-
+const style2: IStyleConfig = {};
 
 console.log(Formatter.getStyle(style2));

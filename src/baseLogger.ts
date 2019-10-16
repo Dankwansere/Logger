@@ -41,7 +41,7 @@ export class BaseLogger {
   private createObject(level: string, message: string): IInfo {
     const infoObj: IInfo = {
       level,
-      message
+      message,
     };
     return infoObj;
   }
@@ -51,16 +51,16 @@ export class BaseLogger {
   }
 
   private printComplexMessage(messageObj: IInfo, ...data: any[]) {
-    console.log('%c' +messageObj.message, this.messageStyle);
+    console.log('%c' + messageObj.message, this.messageStyle);
     for (let val of data) {
       if (typeof val === 'object') {
         console.table(val);
       } else {
-        console.log('%c'+val, this.messageStyle);
+        console.log('%c' + val, this.messageStyle);
       }
     }
     console.log('%cLocation: ' + messageObj.location, this.messageStyle);
     console.log('%cLevel: ' + messageObj.level, this.messageStyle);
-    console.log('%cTime: '+ messageObj.date, this.messageStyle);
+    console.log('%cTime: ' + messageObj.date, this.messageStyle);
   }
 }
