@@ -1,10 +1,16 @@
 import { Formatter, IInfo } from './format';
 import { Level } from './level';
+import { IStyleConfig } from './config';
 
 export class BaseLogger {
   protected level: Level;
   private formattedMessage: string;
   private formattedMessageObj: IInfo;
+  private messageStyle: string;
+
+  constructor(customStyle: IStyleConfig = {}) {
+    this.messageStyle = Formatter.getStyle(customStyle);
+  }
 
   protected logToConsole(message: string, ...data: any[]): void {
     switch (this.level) {
@@ -34,8 +40,8 @@ export class BaseLogger {
 
   private createObject(level: string, message: string): IInfo {
     const infoObj: IInfo = {
-      message,
       level,
+      message
     };
     return infoObj;
   }
@@ -45,16 +51,16 @@ export class BaseLogger {
   }
 
   private printComplexMessage(messageObj: IInfo, ...data: any[]) {
-    console.log(messageObj.message);
+    console.log('%c' +messageObj.message, this.messageStyle);
     for (let val of data) {
       if (typeof val === 'object') {
         console.table(val);
       } else {
-        console.log(val);
+        console.log('%c'+val, this.messageStyle);
       }
     }
-    console.log('%cLocation: ', 'background:blue; color: white');
-    console.log('Level: ', messageObj.level);
-    console.log('Time: ', messageObj.date);
+    console.log('%cLocation: ' + messageObj.location, this.messageStyle);
+    console.log('%cLevel: ' + messageObj.level, this.messageStyle);
+    console.log('%cTime: '+ messageObj.date, this.messageStyle);
   }
 }
