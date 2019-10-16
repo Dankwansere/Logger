@@ -1,12 +1,26 @@
 import { Logger } from './logger';
+import { Formatter } from './format';
+import { IStyleConfig } from './config';
 
-const log: Logger = new Logger();
+// const log: Logger = new Logger();
 
-const dog = {
-  bark: 'true',
-  name: 'Johnny',
-};
+// const dog = {
+//   bark: 'true',
+//   name: 'Johnny',
+// };
 
-const test = ['Bob', 'Jack', 'Sally', 'Zero'];
+// const test = ['Bob', 'Jack', 'Sally', 'Zero'];
 
-log.info('Thanksgiving warning', dog, test);
+// log.info('Thanksgiving warning', dog, test);
+
+const style: IStyleConfig = {
+  background: "blue",
+  color: "red",
+  font_family: "arial",
+  font_size: "30px",
+}
+
+const style2: IStyleConfig = {}
+
+
+console.log(Formatter.getStyle(style2));
