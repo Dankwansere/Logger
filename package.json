@@ -1,6 +1,6 @@
 {
   "name": "gege-logger",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Front end logger",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
