@@ -1,10 +1,10 @@
 import { BaseLogger } from './baseLogger';
-import { ILogger } from './Ilogger';
 import { IStyleConfig } from './config';
+import { ILogger } from './Ilogger';
 
 export class Logger extends BaseLogger implements ILogger {
   constructor(styleConfig?: IStyleConfig) {
-    super();
+    super(styleConfig);
   }
 
   public info(message: string, ...data: any[]): void {
