@@ -2,16 +2,19 @@ import { Logger } from './logger';
 import { Formatter } from './format';
 import { IStyleConfig } from './config';
 
-// const log: Logger = new Logger();
+const log: Logger = new Logger();
 
-// const dog = {
-//   bark: 'true',
-//   name: 'Johnny',
-// };
+const dog = {
+  bark: 'true',
+  name: 'Johnny',
+  // food: {
+  //   type: 'dog food'
+  // }
+};
 
-// const test = ['Bob', 'Jack', 'Sally', 'Zero'];
+const test = ['Bob', 'Jack', 'Sally', 'Zero'];
 
-// log.info('Thanksgiving warning', dog, test);
+log.info('Thanksgiving warning', dog);
 
 const style: IStyleConfig = {
   background: 'blue',
@@ -22,4 +25,4 @@ const style: IStyleConfig = {
 
 const style2: IStyleConfig = {};
 
-console.log(Formatter.getStyle(style2));
+
