@@ -14,7 +14,6 @@ export class BaseLogger {
   }
 
   protected logToConsole(message: string, ...data: any[]): void {
-
     switch (this.level) {
       case 'info': {
         this.processMessage(message, this.level, ...data);
@@ -55,7 +54,7 @@ export class BaseLogger {
   private printComplexMessage(messageObj: IInfo, ...data: any[]) {
     console.log('%c' + messageObj.message, this.messageStyle);
     for (const val of data) {
-      if (typeof(val) === 'object') {
+      if (typeof val === 'object') {
         console.log('is object nested: ', Formatter.isObjectNested(val));
         //console.table(val);
       } else {

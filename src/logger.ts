@@ -4,7 +4,6 @@ import { IStyleConfig } from './config';
 import { ILogger } from './Ilogger';
 
 export class Logger extends BaseLogger implements ILogger {
-
   constructor(styleConfig?: IStyleConfig) {
     super(styleConfig);
   }
@@ -23,16 +22,14 @@ export class Logger extends BaseLogger implements ILogger {
     this.logToConsole(message);
   }
 
-  public routeEvents(router: import("@angular/router").Router): void {
-    router.events.subscribe( (event) => {
-      if(event instanceof NavigationStart) {
+  public routeEvents(router: import('@angular/router').Router): void {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
         console.log('Navigation has started');
       }
-      if(event instanceof NavigationEnd) {
+      if (event instanceof NavigationEnd) {
         console.log('Navigation has end');
       }
-    })
+    });
   }
-
-
 }

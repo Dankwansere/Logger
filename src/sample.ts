@@ -24,5 +24,3 @@ const style: IStyleConfig = {
 };
 
 const style2: IStyleConfig = {};
-
-

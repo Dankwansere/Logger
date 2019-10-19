@@ -42,9 +42,8 @@ export class Formatter {
    * @param obj takes argument of object type
    */
   public static isObjectNested(obj: object): boolean {
-
-    for(const val in obj) {
-      if(typeof(obj[val]) === 'object') {
+    for (const val in obj) {
+      if (typeof obj[val] === 'object') {
         return true;
       }
     }
