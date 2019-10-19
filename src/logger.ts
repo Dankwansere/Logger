@@ -1,4 +1,4 @@
-import { NavigationEnd, NavigationStart } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { BaseLogger } from './baseLogger';
 import { IStyleConfig } from './config';
 import { ILogger } from './Ilogger';
@@ -22,7 +22,7 @@ export class Logger extends BaseLogger implements ILogger {
     this.logToConsole(message);
   }
 
-  public routeEvents(router: import('@angular/router').Router): void {
+  public routeEvents(router: Router): void {
     router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         console.log('Navigation has started');
