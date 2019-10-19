@@ -1,3 +1,4 @@
+import clonedeep from 'lodash/cloneDeep';
 import { Formatter, IInfo } from './format';
 import { Level } from './level';
 import { IStyleConfig } from './config';
@@ -13,6 +14,7 @@ export class BaseLogger {
   }
 
   protected logToConsole(message: string, ...data: any[]): void {
+
     switch (this.level) {
       case 'info': {
         this.processMessage(message, this.level, ...data);
@@ -52,9 +54,10 @@ export class BaseLogger {
 
   private printComplexMessage(messageObj: IInfo, ...data: any[]) {
     console.log('%c' + messageObj.message, this.messageStyle);
-    for (let val of data) {
-      if (typeof val === 'object') {
-        console.table(val);
+    for (const val of data) {
+      if (typeof(val) === 'object') {
+        console.log('is object nested: ', Formatter.isObjectNested(val));
+        //console.table(val);
       } else {
         console.log('%c' + val, this.messageStyle);
       }
