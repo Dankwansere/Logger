@@ -1,7 +1,7 @@
+import { NavigationEnd, NavigationStart } from '@angular/router';
 import { BaseLogger } from './baseLogger';
 import { IStyleConfig } from './config';
 import { ILogger } from './Ilogger';
-import { NavigationStart, NavigationEnd } from '@angular/router';
 
 export class Logger extends BaseLogger implements ILogger {
 
