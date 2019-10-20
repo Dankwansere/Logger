@@ -23,8 +23,8 @@ export class Logger extends BaseLogger implements ILogger {
   }
 
   public routeEvents(router: Router): void {
-    router.events.subscribe( (event: RouterEvent) => {
-        this.routeEventsHandler(event);
+    router.events.subscribe((event: RouterEvent) => {
+      this.routeEventsHandler(event);
     });
   }
 }

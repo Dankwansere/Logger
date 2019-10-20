@@ -38,7 +38,7 @@ export class BaseLogger {
    */
   protected routeEventsHandler(routeEvent: RouterEvent): void {
     const routerEventMessage: string = Formatter.generateRouteMessage(routeEvent);
-    if(routerEventMessage) {
+    if (routerEventMessage) {
       this.printSimpleMessage(routerEventMessage);
     }
   }
