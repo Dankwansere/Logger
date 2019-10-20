@@ -1,7 +1,6 @@
-import clonedeep from 'lodash/cloneDeep';
+import { IStyleConfig } from './config';
 import { Formatter, IInfo } from './format';
 import { Level } from './level';
-import { IStyleConfig } from './config';
 
 export class BaseLogger {
   protected level: Level;
@@ -32,6 +31,14 @@ export class BaseLogger {
     }
   }
 
+  /**
+   * Outputs message of router current lifecyle event
+   * @param routeEvent Router events that allow you to track the lifecycle of the router.
+   */
+  protected routeEventsHandler(routeEvent): void {
+    this.printSimpleMessage(Formatter.generateRouteMessage(routeEvent));
+  }
+
   private processMessage(message: string, level: string, ...data: any[]): void {
     if (data.length > 0) {
       this.formattedMessageObj = Formatter.generateMessageObj(message, level);
@@ -56,7 +63,7 @@ export class BaseLogger {
     for (const val of data) {
       if (typeof val === 'object') {
         console.log('is object nested: ', Formatter.isObjectNested(val));
-        //console.table(val);
+        // console.table(val);
       } else {
         console.log('%c' + val, this.messageStyle);
       }
