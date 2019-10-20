@@ -1,3 +1,4 @@
+import { RouterEvent } from '@angular/router';
 import { IStyleConfig } from './config';
 import { Formatter, IInfo } from './format';
 import { Level } from './level';
@@ -35,8 +36,11 @@ export class BaseLogger {
    * Outputs message of router current lifecyle event
    * @param routeEvent Router events that allow you to track the lifecycle of the router.
    */
-  protected routeEventsHandler(routeEvent): void {
-    this.printSimpleMessage(Formatter.generateRouteMessage(routeEvent));
+  protected routeEventsHandler(routeEvent: RouterEvent): void {
+    const routerEventMessage: string = Formatter.generateRouteMessage(routeEvent);
+    if(routerEventMessage) {
+      this.printSimpleMessage(routerEventMessage);
+    }
   }
 
   private processMessage(message: string, level: string, ...data: any[]): void {
