@@ -2,10 +2,10 @@
  * Determines the logger severity
  */
 const levels = {
+  error: 'error',
+  info: 'info',
   severe: 'severe',
   warning: 'warning',
-  info: 'info',
-  error: 'error',
 };
 
 type Level = keyof typeof levels;
