@@ -24,7 +24,15 @@ export class Logger extends BaseLogger implements ILogger {
 
   public routeEvents(router: Router): void {
     router.events.subscribe(event => {
-      this.routeEventsHandler(event);
+      if(event instanceof NavigationStart){
+        console.log('Navigation start true');
+        this.routeEventsHandler(event);
+      }
+      if(event instanceof NavigationEnd){
+        console.log('Navigation end true');
+        this.routeEventsHandler(event);
+      }
+     
     });
   }
 }
