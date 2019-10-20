@@ -6,6 +6,7 @@ import {
   NavigationStart,
   ResolveEnd,
   ResolveStart,
+  RouterEvent,
   RoutesRecognized,
 } from '@angular/router';
 import { IStyleConfig } from './config';
@@ -37,9 +38,13 @@ export class Formatter {
     };
   }
 
-  public static generateRouteMessage(routeEvent): string {
+  /**
+   * Generates a message for routing events based on the Route event type
+   * @param routeEvent RouterEvent object, executed one time for any given navigation.
+   */
+  public static generateRouteMessage(routeEvent: RouterEvent | any): string {
     let message: string = '';
-    switch (routeEvent) {
+    switch (true) {
       case routeEvent instanceof NavigationStart: {
         message = `Route navigation started
         Navigating to: ${routeEvent.url}
