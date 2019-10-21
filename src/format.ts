@@ -75,12 +75,12 @@ export class Formatter {
       case routeEvent instanceof NavigationCancel: {
         message = `Navigation to ${routeEvent.url} cancelled.
         Route ID: ${routeEvent.id}
-        Possible cause: This can happen when Route Guard returns a false or a redirect has been iniated.
+        Possible cause: This can happen when Route Guard returns a false or a redirect has been initiated.
         `;
         break;
       }
       case routeEvent instanceof NavigationEnd: {
-        message = `Route navigation started
+        message = `Route navigation complete
         Navigating to: ${routeEvent.url}
         Navigation Trigger: ${routeEvent.navigationTrigger}
         Route ID: ${routeEvent.id} `;
